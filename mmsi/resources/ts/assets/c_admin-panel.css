@@ -1,0 +1,679 @@
+:root {
+  --primary: #457aff;
+  --primary-dark: #2a4999;
+  --bg-light: #f9fafb;
+  --text-dark: #1e1e1e;
+  --rounded: 16px;
+  --transition: 0.2s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: 'Lexend', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.c_admin-panel-frame {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+}
+
+/* Sidebar */
+aside {
+  width: 250px;
+  background-color: white;
+  color: black;
+  padding: 2rem 1rem;
+  border-top-left-radius: var(--rounded);
+  border-bottom-left-radius: var(--rounded);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+nav a {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+nav a.active {
+  background-color: var(--primary-dark);
+  color: white;
+  font-weight: 600;
+}
+
+.profile-card {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.profile-card .role {
+  font-size: 0.75rem;
+  color: #e5e7eb;
+}
+
+.action-buttons button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+main h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.header-actions button {
+  background: orange;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.header-actions button:hover {
+  background-color: darkorange;
+}
+
+/* Cards */
+.card,
+.recheck-summary,
+.activity-log {
+  background-color: white;
+  color: var(--text-dark);
+  border-radius: var(--rounded);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Forms */
+form input,
+form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+form button {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  width: 100%;
+}
+
+form button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  color: var(--text-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #f3f4f6;
+  color: #1e293b;
+}
+
+td,
+th {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ✅ Hanya tbody yang bisa hover */
+table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* ✅ Matikan hover di thead sepenuhnya */
+table thead tr:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* Chart Container */
+.chart-container {
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--rounded);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  color: var(--text-dark);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .c_admin-panel-frame {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 1rem;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+/* Chart Styling */
+.chart-container {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: var(--rounded);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: var(--text-dark);
+  position: relative;
+  margin-top: 1rem;
+}
+
+.chart-container h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.recharts-wrapper {
+  width: 100% !important;
+}
+
+.recharts-cartesian-grid line {
+  stroke: #e5e7eb;
+}
+
+.recharts-cartesian-axis-tick text {
+  fill: #475569 !important;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.recharts-tooltip-label,
+.recharts-tooltip-item {
+  color: #1f2937 !important;
+  font-weight: 500;
+}
+
+.recharts-legend-item text {
+  fill: #1e293b !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.recharts-line-curve {
+  stroke-width: 3px;
+}
+
+.recharts-tooltip-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1rem;
+}
+
+.recharts-tooltip-item {
+  color: #1e293b !important;
+}
+
+.recharts-tooltip-label {
+  font-weight: bold;
+  color: #0f172a !important;
+}
+
+.order-form input:first-of-type {
+  margin-top: 1rem;
+}
+
+table thead {
+  pointer-events: none;
+}
+
+/* 🎯 Ubah warna thead HANYA untuk tabel user list */
+.user-table thead {
+  background-color: #457aff !important;
+  color: white !important;
+}
+
+.user-table thead tr,
+.user-table thead th {
+  background-color: #457aff !important;
+  color: white !important;
+}
+
+/* Optional: pastikan tidak ada hover */
+.user-table thead:hover,
+.user-table thead tr:hover,
+.user-table thead th:hover {
+  background-color: #457aff !important;
+  color: white !important;
+  cursor: default;
+}
+
+/* 🌟 Modernisasi Tabel Breakdown & Audit */
+
+.breakdown-table {
+  border-radius: 16px;
+  overflow-x: auto;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.breakdown-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 800px;
+}
+
+.breakdown-table thead {
+  background-color: #1e3a8a;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.breakdown-table thead th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.breakdown-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.breakdown-table tbody tr:hover {
+  background-color: #f0f6ff;
+}
+
+.breakdown-table tbody td {
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  border-top: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.breakdown-table .status-verified,
+.breakdown-table .status-pending {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-align: center;
+}
+
+.breakdown-table .status-verified {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.breakdown-table .status-pending {
+  background-color: #fef9c3;
+  color: #b45309;
+}
+
+/* Tombol Aksi */
+.breakdown-table .actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.breakdown-table .btn-verify,
+.breakdown-table .btn-delete {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.breakdown-table .btn-verify {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.breakdown-table .btn-verify:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.breakdown-table .btn-delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.breakdown-table .btn-delete:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .breakdown-table table {
+    font-size: 0.75rem;
+  }
+
+  .breakdown-table th,
+  .breakdown-table td {
+  font-size: 1rem;         /* 🔹 Perbesar teks */
+  font-weight: 700;           /* 🔹 Lebih tebal (bold) */
+  color: #1e293b;             /* 🔹 Warna teks gelap modern */
+}
+
+  .breakdown-table .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .breakdown-table .btn-verify,
+  .breakdown-table .btn-delete {
+    width: 100%;
+  }
+}
+
+/* 🎯 Perbesar angka di kolom Kas dan Total Portofolio */
+.breakdown-table td.amount {
+  font-size: 1rem;            /* Lebih besar dari teks biasa */
+  font-weight: 700;           /* Bold agar menonjol */
+  color: #111827;             /* Warna gelap untuk kontras */
+}
+
+/* 🎯 Perbesar teks kolom Tanggal dan Dibuat Oleh di BreakdownAudit */
+.breakdown-table td.date,
+.breakdown-table td.created-by {
+  font-size: 1rem;
+  font-weight: 400; /* Tidak bold */
+  color: #1e293b;
+}
+
+/* 🎯 Gaya menonjol seperti breakdown audit */
+.nominee-table .highlight-number {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ✂️ Padatkan tampilan tabel */
+.nominee-table th,
+.nominee-table td {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* 🟦 Judul kolom bold dan kapital */
+.nominee-table thead th {
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #1e3a8a;
+  color: white;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+/* Kolom price dan lots lebih menonjol */
+.highlight-number {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* 🎯 Ukuran huruf 1rem untuk kolom teks */
+.nominee-table td.stock,
+.nominee-table td.strategist,
+.nominee-table td.nominee,
+.nominee-table td.executed-at {
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+/* 🌟 Gaya thead seperti Breakdown Audit untuk Activity Log */
+.activity-log-table thead {
+  background-color: #1e3a8a;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.activity-log-table thead th {
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  text-align: left;
+}
+
+/* 🔧 Non-uppercase thead untuk tiga tabel */
+.nominee-table thead th,
+.breakdown-table thead th,
+.activity-log-table thead th {
+  text-transform: none !important;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #457aff;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+  max-width: 320px;
+  background-color: #457aff;
+  color: white;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.search-input::placeholder {
+  color: #e0e7ff;
+  opacity: 1;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(69, 122, 255, 0.3);
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.order-form h2 {
+  margin-bottom: 1rem;
+}
+
+.button-activate,
+.button-deactivate {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ✅ Tombol ACTIVATE */
+.button-activate {
+  background-color: #16a34a; /* emerald-600 */
+  color: white;
+}
+.button-activate:hover {
+  background-color: #15803d; /* emerald-700 */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(22, 163, 74, 0.4);
+}
+.button-activate::before {
+  content: '✔️';
+}
+
+/* ❌ Tombol DEACTIVATE */
+.button-deactivate {
+  background-color: #dc2626; /* red-600 */
+  color: white;
+}
+.button-deactivate:hover {
+  background-color: #b91c1c; /* red-700 */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(220, 38, 38, 0.4);
+}
+.button-deactivate::before {
+  content: '🚫';
+}
+
+.button-export {
+  background-color: #10b981; /* Tailwind emerald-500 */
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem; /* text-sm */
+  border: none;
+  border-radius: 0.375rem; /* rounded-md */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.button-export:hover {
+  background-color: #059669; /* Tailwind emerald-600 */
+}
+
+.button-export:active {
+  background-color: #047857; /* Tailwind emerald-700 */
+}
+
+.button-export:disabled {
+  background-color: #a7f3d0; /* Tailwind emerald-200 */
+  cursor: not-allowed;
+}

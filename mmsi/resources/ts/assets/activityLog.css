@@ -1,0 +1,162 @@
+:root {
+  --primary: #457aff;
+  --primary-dark: #2a4999;
+  --bg-light: #f9fafb;
+  --text-dark: #1e1e1e;
+  --rounded: 16px;
+  --transition: 0.2s ease-in-out;
+}
+
+.c_admin-panel-frame {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+}
+
+/* Sidebar */
+aside {
+  width: 250px;
+  background-color: white;
+  color: black;
+  padding: 2rem 1rem;
+  border-top-left-radius: var(--rounded);
+  border-bottom-left-radius: var(--rounded);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+nav a {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+nav a.active {
+  background-color: var(--primary-dark);
+  color: white;
+  font-weight: 600;
+}
+
+.profile-card {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.profile-card .role {
+  font-size: 0.75rem;
+  color: #e5e7eb;
+}
+
+.action-buttons button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.action-buttons button:hover {
+  background-color: #b91c1c;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+main h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card {
+  background-color: white;
+  color: var(--text-dark);
+  border-radius: var(--rounded);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  color: var(--text-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #1e3a8a;
+  color: white;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+}
+
+@media (max-width: 768px) {
+  .c_admin-panel-frame {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}

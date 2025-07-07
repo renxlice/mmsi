@@ -1,0 +1,250 @@
+:root {
+  --primary: #457aff;
+  --primary-dark: #2a4999;
+  --bg-light: #f9fafb;
+  --text-dark: #1e1e1e;
+  --rounded: 16px;
+  --transition: 0.2s ease-in-out;
+}
+
+/* Layout umum */
+.grafik-eksekusi-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
+  color: white;
+  font-family: 'Lexend', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: white;
+  color: black;
+  padding: 2rem 1rem;
+  border-top-left-radius: var(--rounded);
+  border-bottom-left-radius: var(--rounded);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-nav a {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.sidebar-nav a:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.sidebar-nav a.active {
+  background-color: var(--primary-dark);
+  color: white;
+  font-weight: 600;
+}
+
+.strategist-info {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.strategist-info img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.strategist-info .role {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.sidebar-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sidebar-buttons button {
+  flex: 1;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar-buttons .settings {
+  background-color: #fbbf24;
+}
+
+.sidebar-buttons .logout {
+  background-color: #dc2626;
+}
+
+/* Konten utama */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.content-box {
+  background-color: white;
+  color: var(--text-dark);
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+
+/* Header halaman */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Pencarian */
+.search-bar {
+  background-color: #c7d2fe;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  color: #1e3a8a;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-bar:focus {
+  background-color: #a5b4fc;
+}
+
+/* Tabel */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+table.execution-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.execution-table thead {
+  background-color: #1e3a8a;
+  color: #dbeafe;
+}
+
+.execution-table th,
+.execution-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Disable hover effect on thead */
+.execution-table thead:hover,
+.execution-table thead tr:hover,
+.execution-table thead th:hover {
+  background-color: #1e3a8a !important;
+  color: #dbeafe !important;
+  cursor: default;
+}
+
+.execution-table tbody tr:hover {
+  background-color: #f0f9ff;
+}
+
+.execution-table tbody td {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status-waiting {
+  background-color: #facc15;
+  color: black;
+}
+
+.status-executed {
+  background-color: #10b981;
+}
+
+.status-inprogress {
+  background-color: #3b82f6;
+}
+
+.status-unknown {
+  background-color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grafik-eksekusi-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

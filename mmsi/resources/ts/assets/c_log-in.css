@@ -1,0 +1,172 @@
+/* ✅ FRAME UTAMA LOGIN */
+.c_log-in-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background-image: linear-gradient(-90deg, #457aff 0%, #2a4999 100%);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* ✅ HEADER (MMSI) */
+.c_log-in-text11 {
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ✅ CARD FORM LOGIN */
+.c_log-in-form {
+  background-color: #ffffff;
+  border-radius: 25px;
+  max-width: 500px;
+  width: 100%;
+  padding: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ LABEL */
+.c_log-in-label {
+  font-family: 'Lexend', sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+/* ✅ INPUT */
+.c_log-in-input {
+  font-family: 'Lexend', sans-serif;
+  font-size: 16px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* ✅ BUTTON */
+.c_log-in-button {
+  font-family: 'Lexend', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  padding: 0.75rem;
+  color: #ffffff;
+  background: linear-gradient(to right, #004aad, #002a6b);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.c_log-in-button:hover {
+  background: linear-gradient(to right, #003b90, #001e52);
+}
+
+.custom-modal-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.modal-close {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background-color: #b91c1c;
+}
+
+/* ✅ Error box container */
+.error-message-box {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ✅ Teks error */
+.error-text {
+  flex: 1;
+  margin-right: 12px;
+  word-break: break-word;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ✅ Tombol ✕, tanpa hover, tidak besar */
+.error-close-btn {
+  all: unset; /* Menghapus semua style bawaan browser */
+  font-size: 16px;
+  font-weight: bold;
+  color: #991b1b;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+/* ✅ Hilangkan efek hover & focus */
+.error-close-btn:hover,
+.error-close-btn:focus,
+.error-close-btn:active {
+  background: none;
+  outline: none;
+  box-shadow: none;
+  color: #991b1b;
+}
